@@ -19,8 +19,9 @@ function PasswordGen() {
     }
 
     const onCopy = (e: React.MouseEvent<HTMLButtonElement>) => {
-        navigator.clipboard.writeText(e.currentTarget.value);
-        alert('copy password on clipboard');
+        navigator.clipboard.writeText(e.currentTarget.value)
+        .then(() => alert('copy password on clipboard.'))
+        .catch(() => alert('copy failed.'));
     }
 
     useEffect(() => {
