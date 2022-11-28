@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   text-align: center;
-  font-size: 1rem ;
+  font-size: 1rem;
   color: rgb(1, 4, 19);
   font-family: 'Lato', sans-serif;
 }
@@ -18,19 +18,20 @@
 }
 
 h2 {
-  font-size: 2rem ;
+  font-size: 2rem;
   margin-bottom: 10px;
 }
 
 .container {
   padding: 20px 10px;
   border-radius: 10px;
-  height: 400px;
+  height: 420px;
   width: 350px;
   background-color: rgba(219, 229, 230, 0.5);
   text-align: center;
   border: 2px solid rgba(199, 204, 204, 0.7);
 }
+
 .text-area-container {
   display: flex;
 }
@@ -41,7 +42,7 @@ h2 {
   height: 2.2rem;
 }
 
-.copy-btn{
+.copy-btn {
   cursor: pointer;
 }
 
@@ -71,7 +72,7 @@ h2 {
 }
 
 .checkbox-container input,
-.checkbox-container label{
+.checkbox-container label {
   margin: 10px 25px;
   font-size: 1.2rem;
 }
@@ -80,13 +81,12 @@ h2 {
   cursor: pointer;
 }
 
-.checkbox-container .checkbox{
+.checkbox-container .checkbox {
   width: 17px;
   height: 17px;
 }
 
 .generate-btn {
-  margin-top: 30px;
   padding: 10px;
   font-size: 1.5rem;
   font-weight: 600;
@@ -94,4 +94,96 @@ h2 {
   text-align: center;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.level-Container {
+  margin: 10px auto;
+  width: 70%;
+  font-size: 1.2rem;
+  height: 50px;
+  background: rgba(62, 51, 51, 0.3);
+  border-radius: 5px;
+}
+
+.weak,
+.medium,
+.strong {
+  font-size: 2rem;
+  padding: 3px;
+}
+
+.weak {
+  color: rgb(151, 31, 31);
+}
+
+.medium {
+  color: rgb(210, 210, 76);
+}
+
+.strong {
+  color: rgb(66, 210, 66);
+}
+
+button:hover {
+  background-color: rgba(82, 94, 37, 0.5);
+}
+
+@media screen and (max-width: 370px) {
+  * {
+    font-size: 0.6rem;
+  }
+
+  .container {
+    height: 380px;
+    width: 80%;
+  }
+
+  .text-area-container>button,
+  .text-area-container>textarea {
+    height: 50px;
+    margin: 15px auto;
+    height: 2.5rem;
+
+  }
+
+  .checkbox-container .checkbox {
+    width: 13px;
+    height: 13px;
+  }
+
+  .level-Container {
+    margin: 15px auto;
+    width: 50%;
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 310px) {
+  * {
+    font-size: 0.5rem;
+  }
+
+  .container {
+    height: 360px;
+    width: 80%;
+  }
+
+  .text-area-container>button,
+  .text-area-container>textarea {
+    height: 50px;
+    margin: 15px auto;
+    height: 2.5rem;
+
+  }
+
+  .checkbox-container .checkbox {
+    width: 13px;
+    height: 13px;
+  }
+
+  .level-Container {
+    margin: 15px auto;
+    width: 50%;
+    height: 30px;
+  }
 }

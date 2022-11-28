@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { randomsPass } from '../features/RandomsPass';
+import { strengthPass } from '../features/PasswordStrength';
+import StrengthLevel from './StrengthLevel';
+
 
 function PasswordGen() {
-    const [length, setLength] = useState(4);
-    const [lower, setLower] = useState(true);
+    const [length, setLength] = useState(15);
+    const [lower, setLower] = useState(false);
     const [upper, setUpper] = useState(false);
     const [numb, setNumb] = useState(false);
     const [special, setSpecial] = useState(false);
     const [password, setPassword] = useState('');
+    const [strength, setStrength] = useState('');
     const [func, setFunc] = useState(Array<number | boolean>);
 
     const onGenerate = () => {
@@ -21,7 +25,9 @@ function PasswordGen() {
 
     useEffect(() => {
         setFunc([length, lower, upper, numb, special]);
-    }, [length, lower, upper, numb, special])
+        setStrength(strengthPass(password));
+    }, [length, lower, upper, numb, special, password])
+    
 
     return (
         <div className='container'>
@@ -29,10 +35,9 @@ function PasswordGen() {
             <div className='text-area-container'>
                 <textarea className='password-area' name='password' value={password} disabled />
                 {
-                    password === '' ? <button className="copy-btn" onClick={() => alert("No password yet")} value={password} >Copy</button>
+                    password === '' ? <button className="copy-btn" onClick={e => alert('Please generate password.')} value={password}>Copy</button>
                     : <button className="copy-btn" onClick={onCopy} value={password}>Copy</button>
                 }
-                
             </div>
 
             <div className="checkbox-container">
@@ -41,7 +46,7 @@ function PasswordGen() {
                     <label>{length}</label>
                 </div>
                 <div>
-                    <input className='checkbox' type="checkbox" checked onClick={e => setLower(!lower)} onChange={e => {}}/>
+                    <input className='checkbox' type="checkbox" onClick={e => setLower(!lower)}/>
                     <label>Include Lower Character</label>
                 </div>
                 <div>
@@ -56,8 +61,8 @@ function PasswordGen() {
                     <input className='checkbox' type="checkbox" onClick={e => setSpecial(!special)} />
                     <label>Include Special Character</label>
                 </div>
-
             </div>
+            <StrengthLevel strength={strength} password={password}/>
             <button className="generate-btn" type="submit" onClick={onGenerate}>Generate</button>
         </div>
     )
