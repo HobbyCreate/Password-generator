@@ -160,7 +160,7 @@ button:hover {
 
 @media screen and (min-width: 270px) and (max-width: 305px) {
   * {
-    font-size: 0.5rem;
+    font-size: 0.45rem;
   }
 
   .container {
